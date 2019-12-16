@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundDark"
-    tools:context=".ui.CitiesActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.EditCityActivity"
+    tools:showIn="@layout/activity_edit_city">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
@@ -27,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_description"
+                android:text="@string/edit_description"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -43,33 +44,22 @@
                     android:layout_weight="8">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etCity"
+                        android:id="@+id/etChangeCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_city_hint" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/btAdd"
+                    android:id="@+id/btSave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
-                    android:text="@string/add"
+                    android:text="@string/save"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCities"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

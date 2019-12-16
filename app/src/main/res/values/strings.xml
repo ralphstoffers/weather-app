@@ -9,5 +9,12 @@
     <string name="insert_error">Something went wrong wile saving the City! Are you sure it isn\'t a duplicate?</string>
     <string name="insert_success">Successfully added the City!</string>
     <string name="delete_success">Successfully deleted the City!</string>
-    <string name="delete_error">Something went wrong wile deleting the City! Please try again.</string>
+    <string name="delete_error">Something went wrong while deleting the City! Please try again.</string>
+    <string name="update_error">Something went wrong while updating the City! Please try again.</string>
+    <string name="update_success">Successfully updated the City!</string>
+    <string name="undo">UNDO</string>
+    <string name="title_activity_edit_city">EditCityActivity</string>
+    <string name="change_city">Edit a city</string>
+    <string name="save">Save</string>
+    <string name="edit_description">Edit your city name:</string>
 </resources>

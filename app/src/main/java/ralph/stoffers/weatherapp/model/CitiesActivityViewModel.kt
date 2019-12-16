@@ -16,6 +16,7 @@ class CitiesActivityViewModel(application: Application) : AndroidViewModel(appli
 
     val success = MutableLiveData<Int?>()
     val error = MutableLiveData<Int?>()
+    val cities = cityRepository.getAllCities()
 
     fun insertCity(cityName: String) {
         error.value = 0
@@ -34,6 +35,20 @@ class CitiesActivityViewModel(application: Application) : AndroidViewModel(appli
             }
         }
     }
+
+    fun insertCity(city: City) {
+        error.value = 0
+        success.value = 0
+        mainScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    cityRepository.insertCity(city)
+                }
+            } catch (e: Exception) {
+            }
+        }
+    }
+
 
     fun deleteCity(city: City) {
         error.value = 0
