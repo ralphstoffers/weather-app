@@ -6,4 +6,8 @@
     <string name="add_description">Add a city to your list</string>
     <string name="add_city_hint">City name</string>
     <string name="add">Add</string>
+    <string name="insert_error">Something went wrong wile saving the City! Are you sure it isn\'t a duplicate?</string>
+    <string name="insert_success">Successfully added the City!</string>
+    <string name="delete_success">Successfully deleted the City!</string>
+    <string name="delete_error">Something went wrong wile deleting the City! Please try again.</string>
 </resources>

@@ -42,12 +42,13 @@
                     android:layout_weight="8">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_city_hint" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
