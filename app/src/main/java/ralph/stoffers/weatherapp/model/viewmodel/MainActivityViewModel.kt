@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.api.WeatherRepository
 import ralph.stoffers.weatherapp.database.CityRepository
 import ralph.stoffers.weatherapp.model.api.WeatherApiResponse
@@ -23,7 +24,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     private val cityRepository = CityRepository(application.applicationContext)
     private val mainScope = CoroutineScope(Dispatchers.Main)
     private val weatherRepository = WeatherRepository()
-    private val appId = "bf29db2aeb697d45eb592a961da4aa07"
+    private val appId = application.applicationContext.getString(R.string.appId)
     val cities = cityRepository.getAllCities()
     val weatherData = MutableLiveData<List<CurrentWeather>>().apply { value = arrayListOf() }
 
