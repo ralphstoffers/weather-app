@@ -2,7 +2,7 @@ package ralph.stoffers.weatherapp.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import ralph.stoffers.weatherapp.model.City
+import ralph.stoffers.weatherapp.model.entity.City
 
 @Dao
 interface CityDao {

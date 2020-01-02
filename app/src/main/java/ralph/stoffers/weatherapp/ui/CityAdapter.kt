@@ -2,17 +2,14 @@ package ralph.stoffers.weatherapp.ui
 
 import android.content.Context
 import android.content.Intent
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.city_item.view.*
 import ralph.stoffers.weatherapp.R
-import ralph.stoffers.weatherapp.model.City
+import ralph.stoffers.weatherapp.model.entity.City
 
 internal class CityAdapter (private val cities: List<City>, private val context: Context) :
         RecyclerView.Adapter<CityAdapter.ViewHolder>() {

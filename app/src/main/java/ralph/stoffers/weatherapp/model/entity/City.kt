@@ -1,4 +1,4 @@
-package ralph.stoffers.weatherapp.model
+package ralph.stoffers.weatherapp.model.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

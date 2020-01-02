@@ -2,7 +2,7 @@ package ralph.stoffers.weatherapp.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import ralph.stoffers.weatherapp.model.City
+import ralph.stoffers.weatherapp.model.entity.City
 
 class CityRepository (context: Context) {
     private val cityDao: CityDao

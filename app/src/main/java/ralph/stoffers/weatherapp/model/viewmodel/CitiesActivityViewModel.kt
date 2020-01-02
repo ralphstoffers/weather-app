@@ -1,4 +1,4 @@
-package ralph.stoffers.weatherapp.model
+package ralph.stoffers.weatherapp.model.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.database.CityRepository
+import ralph.stoffers.weatherapp.model.entity.City
 
 class CitiesActivityViewModel(application: Application) : AndroidViewModel(application) {
     private val cityRepository = CityRepository(application.applicationContext)

@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_cities.*
 import ralph.stoffers.weatherapp.R
-import ralph.stoffers.weatherapp.model.CitiesActivityViewModel
-import ralph.stoffers.weatherapp.model.City
+import ralph.stoffers.weatherapp.model.viewmodel.CitiesActivityViewModel
+import ralph.stoffers.weatherapp.model.entity.City
 
 class CitiesActivity : AppCompatActivity() {
     private lateinit var viewModel: CitiesActivityViewModel

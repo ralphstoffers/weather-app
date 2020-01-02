@@ -3,7 +3,6 @@ package ralph.stoffers.weatherapp.ui
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -11,8 +10,8 @@ import ralph.stoffers.weatherapp.R
 
 import kotlinx.android.synthetic.main.activity_edit_city.*
 import kotlinx.android.synthetic.main.content_edit_city.*
-import ralph.stoffers.weatherapp.model.City
-import ralph.stoffers.weatherapp.model.EdityCityActivityViewModel
+import ralph.stoffers.weatherapp.model.entity.City
+import ralph.stoffers.weatherapp.model.viewmodel.EdityCityActivityViewModel
 
 class EditCityActivity : AppCompatActivity() {
     private lateinit var viewModel: EdityCityActivityViewModel
