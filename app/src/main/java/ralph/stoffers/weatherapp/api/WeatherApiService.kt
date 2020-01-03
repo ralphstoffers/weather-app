@@ -1,5 +1,6 @@
 package ralph.stoffers.weatherapp.api
 
+import ralph.stoffers.weatherapp.model.api.ForecastApiResponse
 import ralph.stoffers.weatherapp.model.api.WeatherApiResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,4 +13,11 @@ interface WeatherApiService {
         @Query("APPID") appId: String,
         @Query("units") units: String
     ): Call<WeatherApiResponse>
+
+    @GET("/data/2.5/forecast/hourly")
+    fun getWeatherForecast(
+        @Query("q") query: String,
+        @Query("APPID") appId: String,
+        @Query("units") units: String
+    ): Call<ForecastApiResponse>
 }

@@ -11,11 +11,15 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.weather_item.view.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
-import ralph.stoffers.weatherapp.ui.EditCityActivity
+import ralph.stoffers.weatherapp.ui.ForecastActivity
 import kotlin.math.roundToInt
 
 internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>, private val context: Context)
     : RecyclerView.Adapter<CurrentWeatherAdapter.ViewHolder>() {
+
+    companion object {
+        val CITY_NAME = "CITYNAME"
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -32,7 +36,8 @@ internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>,
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnLongClickListener{
-                val intent = Intent(context, EditCityActivity::class.java).apply {
+                val intent = Intent(context, ForecastActivity::class.java).apply {
+                    putExtra(CITY_NAME, weather[adapterPosition].name)
                 }
                 ContextCompat.startActivity(context, intent, null)
                 true
