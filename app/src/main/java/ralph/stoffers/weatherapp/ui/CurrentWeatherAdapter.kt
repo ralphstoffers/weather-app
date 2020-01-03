@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.weather_item.view.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
+import kotlin.math.roundToInt
 
 internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>, private val context: Context)
     : RecyclerView.Adapter<CurrentWeatherAdapter.ViewHolder>() {
@@ -37,9 +38,9 @@ internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>,
         }
         fun bind(weather: CurrentWeather) {
             itemView.tvCityName.text = weather.name
-            itemView.tvDescription.text = weather.description
-            itemView.tvWind.text = weather.wind
-            itemView.tvTemp.text = weather.temp.toString()
+            itemView.tvDescription.text = context.getString(R.string.description, weather.description)
+            itemView.tvWind.text = context.getString(R.string.wind, weather.wind)
+            itemView.tvTemp.text = context.getString(R.string.temperature, weather.temp.roundToInt())
         }
     }
 

@@ -17,4 +17,7 @@
     <string name="change_city">Edit a city</string>
     <string name="save">Save</string>
     <string name="edit_description">Edit your city name:</string>
+    <string name="temperature">°C %1$d</string>
+    <string name="description">Weather: %1$s</string>
+    <string name="wind">Wind: %1$s</string>
 </resources>
