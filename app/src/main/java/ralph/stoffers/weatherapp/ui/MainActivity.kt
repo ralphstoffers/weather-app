@@ -2,21 +2,23 @@ package ralph.stoffers.weatherapp.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.City
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
 import ralph.stoffers.weatherapp.model.viewmodel.MainActivityViewModel
-import java.util.function.Consumer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel
     private val cityList = arrayListOf<City>()
     private val weatherList = mutableListOf<CurrentWeather>()
+    private val currentWeatherAdapter = CurrentWeatherAdapter(weatherList, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +40,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.weatherList.observe(this, Observer {
             weatherList.clear()
             weatherList.addAll(it)
+            currentWeatherAdapter.notifyDataSetChanged()
         })
     }
 
     private fun initViews() {
+        rvWeather.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rvWeather.adapter = currentWeatherAdapter
+
         fab.setOnClickListener {
             startActivity(Intent(this, CitiesActivity::class.java))
         }
