@@ -53,7 +53,6 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                                 weatherList.apply { value = tmp }
                             }
                         } catch (e: Exception) {
-                            Log.e("err", e.message!!)
                         }
                     }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.weather_item.view.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
@@ -41,6 +42,7 @@ internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>,
             itemView.tvDescription.text = context.getString(R.string.description, weather.description)
             itemView.tvWind.text = context.getString(R.string.wind, weather.wind)
             itemView.tvTemp.text = context.getString(R.string.temperature, weather.temp.roundToInt())
+            Glide.with(context).load(String.format("http://openweathermap.org/img/wn/%s@2x.png", weather.icon)).into(itemView.ivIcon)
         }
     }
 
