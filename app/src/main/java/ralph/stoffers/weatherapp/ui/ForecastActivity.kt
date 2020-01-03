@@ -3,6 +3,11 @@ package ralph.stoffers.weatherapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_forecast.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.WeatherForecast
 import ralph.stoffers.weatherapp.model.viewmodel.ForecastActivityViewModel
@@ -28,10 +33,18 @@ class ForecastActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(ForecastActivityViewModel::class.java)
+        viewModel.forecastList.observe(this, Observer{
+            forecastList.clear()
+            forecastList.addAll(it)
+            forecastAdapter.notifyDataSetChanged()
+        })
+        viewModel.getWeatherForecast(cityName)
     }
 
     private fun initViews() {
-
+        rvForecasts.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rvForecasts.adapter = forecastAdapter
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

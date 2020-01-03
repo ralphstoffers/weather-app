@@ -1,28 +1,25 @@
 package ralph.stoffers.weatherapp.model.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.api.WeatherRepository
-import ralph.stoffers.weatherapp.database.CityRepository
 import ralph.stoffers.weatherapp.model.api.ForecastApiResponse
-import ralph.stoffers.weatherapp.model.api.WeatherApiResponse
 import ralph.stoffers.weatherapp.model.api.Wind
-import ralph.stoffers.weatherapp.model.entity.City
-import ralph.stoffers.weatherapp.model.entity.CurrentWeather
 import ralph.stoffers.weatherapp.model.entity.WeatherForecast
 import ralph.stoffers.weatherapp.util.Converters
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
+import java.util.*
 
 
 class ForecastActivityViewModel(application: Application) : AndroidViewModel(application) {
     private val weatherRepository = WeatherRepository()
     private val appId = application.applicationContext.getString(R.string.appId)
-    private val forecastList =
+    val forecastList =
         MutableLiveData<MutableList<WeatherForecast>>().apply { value = mutableListOf() }
 
     fun getWeatherForecast(city: String) {
@@ -45,9 +42,10 @@ class ForecastActivityViewModel(application: Application) : AndroidViewModel(app
                                         forecast.main.tempMin,
                                         forecast.main.tempMax,
                                         forecast.main.humidity,
-                                        forecast.weather.description,
+                                        forecast.weather[0].description,
                                         formatWind(forecast.wind),
-                                        forecast.weather.icon
+                                        forecast.weather[0].icon,
+                                        Date(forecast.dt)
                                     )
                                 )
                             }

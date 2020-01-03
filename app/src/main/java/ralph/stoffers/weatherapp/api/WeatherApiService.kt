@@ -14,7 +14,7 @@ interface WeatherApiService {
         @Query("units") units: String
     ): Call<WeatherApiResponse>
 
-    @GET("/data/2.5/forecast/hourly")
+    @GET("/data/2.5/forecast")
     fun getWeatherForecast(
         @Query("q") query: String,
         @Query("APPID") appId: String,

@@ -1,5 +1,7 @@
 package ralph.stoffers.weatherapp.model.entity
 
+import java.util.*
+
 data class WeatherForecast(
     val name: String,
     val temp: Double,
@@ -8,5 +10,6 @@ data class WeatherForecast(
     val humidity: Int,
     val description: String,
     val wind: String,
-    val icon: String
+    val icon: String,
+    val dateTime: Date
 )
