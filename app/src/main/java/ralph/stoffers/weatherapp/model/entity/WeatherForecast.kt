@@ -2,6 +2,7 @@ package ralph.stoffers.weatherapp.model.entity
 
 import java.util.*
 
+
 data class WeatherForecast(
     val name: String,
     val temp: Double,

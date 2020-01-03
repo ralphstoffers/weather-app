@@ -18,6 +18,9 @@
     <string name="save">Save</string>
     <string name="edit_description">Edit your city name:</string>
     <string name="temperature">%1$d °C</string>
+    <string name="min_temperature">Min: %1$d °C</string>
+    <string name="max_temperature">Max: %1$d °C</string>
     <string name="description">Weather: %1$s</string>
     <string name="wind">Wind: %1$s</string>
+    <string name="humidity">Humidity: %1$d</string>
 </resources>

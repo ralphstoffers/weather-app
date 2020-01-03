@@ -13,8 +13,9 @@ import ralph.stoffers.weatherapp.util.Converters
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.Instant
+import java.time.ZoneId
 import java.util.*
-
 
 class ForecastActivityViewModel(application: Application) : AndroidViewModel(application) {
     private val weatherRepository = WeatherRepository()
@@ -34,7 +35,7 @@ class ForecastActivityViewModel(application: Application) : AndroidViewModel(app
                         val responseBody = response.body()!!
                         if (responseBody.cod == 200) {
                             val tmp = mutableListOf<WeatherForecast>()
-                            responseBody.list.forEach{forecast ->
+                            responseBody.list.forEach { forecast ->
                                 tmp.add(
                                     WeatherForecast(
                                         responseBody.city.name,
@@ -45,7 +46,7 @@ class ForecastActivityViewModel(application: Application) : AndroidViewModel(app
                                         forecast.weather[0].description,
                                         formatWind(forecast.wind),
                                         forecast.weather[0].icon,
-                                        Date(forecast.dt)
+                                        Date(forecast.dt * 1000)
                                     )
                                 )
                             }
@@ -54,6 +55,7 @@ class ForecastActivityViewModel(application: Application) : AndroidViewModel(app
                     } catch (e: Exception) {
                     }
                 }
+
                 override fun onFailure(call: Call<ForecastApiResponse>, t: Throwable) {
                 }
             })

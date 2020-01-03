@@ -19,8 +19,8 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/tvCityName"
-                android:layout_width="100dp"
+                android:id="@+id/tvDateTime"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -37,30 +37,50 @@
 
             <TextView
                 android:id="@+id/tvTemp"
-                android:textSize="18sp"
                 android:layout_width="0dp"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/tvCityName"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tvDateTime"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvDescription"
-                android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCityName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvDateTime" />
 
             <TextView
                 android:id="@+id/tvWind"
-                android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+            <TextView
+                android:id="@+id/tvMaxTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/ivIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvMinTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/ivIcon"
+                app:layout_constraintTop_toBottomOf="@+id/tvMaxTemp" />
+
+            <TextView
+                android:id="@+id/tvHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/ivIcon"
+                app:layout_constraintTop_toBottomOf="@+id/tvMinTemp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
