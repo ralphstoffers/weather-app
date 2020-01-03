@@ -2,7 +2,6 @@ package ralph.stoffers.weatherapp.model.viewmodel
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
@@ -26,12 +25,11 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     private val weatherRepository = WeatherRepository()
     private val appId = application.applicationContext.getString(R.string.appId)
     val cities = cityRepository.getAllCities()
-    val weatherData = MutableLiveData<List<CurrentWeather>>().apply { value = arrayListOf() }
+    val weatherList = MutableLiveData<MutableList<CurrentWeather>>().apply { value = mutableListOf()}
 
-    fun getCurrentWeather() {
-        val list = mutableListOf<CurrentWeather>()
-        list.addAll(weatherData.value!!)
-        cities.value!!.forEach {
+    fun getCurrentWeather(cities: List<City>) {
+        weatherList.apply { value = mutableListOf() }
+        cities.forEach {
             weatherRepository.getCurrentWeather(it.city, appId)
                 .enqueue(object : Callback<WeatherApiResponse> {
                     override fun onResponse(
@@ -39,28 +37,30 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                         response: Response<WeatherApiResponse>
                     ) {
                         try {
-                            val responsebody = response.body()!!
-                            if (responsebody.cod == 200) {
-                                list.add(
+                            val responseBody = response.body()!!
+                            if (responseBody.cod == 200) {
+                                val tmp = mutableListOf<CurrentWeather>()
+                                tmp.addAll(weatherList.value!!)
+                                tmp.add(
                                     CurrentWeather(
-                                        responsebody.name,
-                                        responsebody.main.temp,
-                                        responsebody.weather[0].description,
-                                        parseWind(responsebody.wind),
-                                        responsebody.weather[0].icon
+                                        responseBody.name,
+                                        responseBody.main.temp,
+                                        responseBody.weather[0].description,
+                                        parseWind(responseBody.wind),
+                                        responseBody.weather[0].icon
                                     )
                                 )
+                                weatherList.apply { value = tmp }
                             }
                         } catch (e: Exception) {
-                            Log.e("", e.toString())
+                            Log.e("err", e.message!!)
                         }
                     }
 
                     override fun onFailure(call: Call<WeatherApiResponse>, t: Throwable) {
-                        Log.e("", t.toString())
+                        Log.e("err", t.message!!)
                     }
                 })
-            weatherData.value = list
         }
     }
 
