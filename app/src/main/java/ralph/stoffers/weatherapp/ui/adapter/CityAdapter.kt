@@ -1,4 +1,4 @@
-package ralph.stoffers.weatherapp.ui
+package ralph.stoffers.weatherapp.ui.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.city_item.view.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.City
+import ralph.stoffers.weatherapp.ui.EditCityActivity
 
 internal class CityAdapter (private val cities: List<City>, private val context: Context) :
         RecyclerView.Adapter<CityAdapter.ViewHolder>() {

@@ -13,12 +13,14 @@ import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.City
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
 import ralph.stoffers.weatherapp.model.viewmodel.MainActivityViewModel
+import ralph.stoffers.weatherapp.ui.adapter.CurrentWeatherAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel
     private val cityList = arrayListOf<City>()
     private val weatherList = mutableListOf<CurrentWeather>()
-    private val currentWeatherAdapter = CurrentWeatherAdapter(weatherList, this)
+    private val currentWeatherAdapter =
+        CurrentWeatherAdapter(weatherList, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

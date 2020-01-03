@@ -1,4 +1,4 @@
-package ralph.stoffers.weatherapp.ui
+package ralph.stoffers.weatherapp.ui.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.weather_item.view.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.entity.CurrentWeather
+import ralph.stoffers.weatherapp.ui.EditCityActivity
 import kotlin.math.roundToInt
 
 internal class CurrentWeatherAdapter (private val weather: List<CurrentWeather>, private val context: Context)

@@ -1,7 +1,6 @@
 package ralph.stoffers.weatherapp.model.viewmodel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ralph.stoffers.weatherapp.R
@@ -55,7 +54,6 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                     }
 
                     override fun onFailure(call: Call<WeatherApiResponse>, t: Throwable) {
-                        Log.e("err", t.message!!)
                     }
                 })
         }

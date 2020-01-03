@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_cities.*
 import ralph.stoffers.weatherapp.R
 import ralph.stoffers.weatherapp.model.viewmodel.CitiesActivityViewModel
 import ralph.stoffers.weatherapp.model.entity.City
+import ralph.stoffers.weatherapp.ui.adapter.CityAdapter
 
 class CitiesActivity : AppCompatActivity() {
     private lateinit var viewModel: CitiesActivityViewModel

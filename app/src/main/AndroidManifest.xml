@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.ForecastActivity"></activity>
         <activity
             android:name=".ui.EditCityActivity"
             android:label="@string/title_activity_edit_city"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.CitiesActivity" />
         <activity
             android:name=".ui.MainActivity"

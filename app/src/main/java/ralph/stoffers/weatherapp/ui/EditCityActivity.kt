@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_edit_city.*
 import kotlinx.android.synthetic.main.content_edit_city.*
 import ralph.stoffers.weatherapp.model.entity.City
 import ralph.stoffers.weatherapp.model.viewmodel.EdityCityActivityViewModel
+import ralph.stoffers.weatherapp.ui.adapter.CityAdapter
 
 class EditCityActivity : AppCompatActivity() {
     private lateinit var viewModel: EdityCityActivityViewModel
